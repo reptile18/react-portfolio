@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route  } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/react-portfolio/">
+    <Router basename="https://reptile18.github.io/react-portfolio/">
       {console.log(`process.env.PUBLIC_URL: ${process.env.PUBLIC_URL}`)}
       <div className="App">
         <Navbar></Navbar>
