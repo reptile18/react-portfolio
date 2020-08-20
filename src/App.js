@@ -13,9 +13,9 @@ function App() {
       <div className="App">
         <Navbar></Navbar>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/portfolio" exact component={Portfolio} />
-          <Route path="/contact" component={Contact} />
+          <Route path="/react-portfolio/" exact component={Home} />
+          <Route path="/react-portfolio/portfolio" exact component={Portfolio} />
+          <Route path="/react-portfolio/contact" component={Contact} />
         </Switch>
       </div>
     </Router>
