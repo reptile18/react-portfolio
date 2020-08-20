@@ -26,13 +26,13 @@ function Navbar() {
             My Portfolio
           </Typography>
           <nav style={styles.nav}>
-            <Link style={styles.link} href="/react-portfolio/">
+            <Link style={styles.link} href="/">
               Home
             </Link>
-            <Link style={styles.link} href="/react-portfolio/portfolio">
+            <Link style={styles.link} href="/portfolio">
               Portfolio
             </Link>
-            <Link style={styles.link} href="/react-portfolio//contact">
+            <Link style={styles.link} href="/contact">
               Contact
             </Link>
           </nav>
