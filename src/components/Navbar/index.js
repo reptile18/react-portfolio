@@ -26,10 +26,10 @@ function Navbar() {
             My Portfolio
           </Typography>
           <nav style={styles.nav}>
-            <Link style={styles.link} href="/">
+            <Link style={styles.link} href={process.env.PUBLIC_URL + "/"}>
               Home
             </Link>
-            <Link style={styles.link} href="/react-portfolio/portfolio">
+            <Link style={styles.link} href={process.env.PUBLIC_URL + "/portfolio"}>
               Portfolio
             </Link>
             <Link style={styles.link} href="/contact">
