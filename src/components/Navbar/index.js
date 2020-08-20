@@ -29,7 +29,7 @@ function Navbar() {
             <Link style={styles.link} href="/">
               Home
             </Link>
-            <Link style={styles.link} href="react-portfolio/portfolio">
+            <Link style={styles.link} href="/portfolio">
               Portfolio
             </Link>
             <Link style={styles.link} href="/contact">
