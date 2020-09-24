@@ -6,7 +6,7 @@ import Carousel from '../Carousel';
 import interfacesImg from '../../assets/interfaces.jpg';
 import interface0 from '../../assets/interface0.png';
 import interface1 from '../../assets/interface1.png';
-import interface2 from '../../assets/interface2.png';
+import interface3 from '../../assets/interface3.png';
 import "./style.css";
 
 const styles = {
@@ -31,9 +31,10 @@ const styles = {
     boxShadow: "-1px 1px 5px 1px rgba(100,100,100,0.5)",
     marginBottom: "5vh"
   },
-  purple: {
+  achilles: {
     zIndex: "0",
-    marginBottom: "5vh"
+    marginBottom: "5vh",
+    height: "50%"
   },
   carousel: {
     
@@ -57,8 +58,8 @@ function IntuitiveInterfaces() {
                 <img className="img" focused={"true"} style={styles.loo} src={interface0} alt="skip to the loo" />
               {/* CCIDI */}
                 <img className="img" focused={"true"} style={styles.ccidi} src={interface1} alt="covid can i do it" />
-              {/* Portfolio */}
-                <img className="img" focused={"true"} style={styles.purple} src={interface2} alt="purple pages" />
+              {/* Achilles Heel */}
+                <img className="img" focused={"true"} style={styles.achilles} src={interface3} alt="achilles heel" />
             </Carousel>
           </Fade>
         </VizSensor>
