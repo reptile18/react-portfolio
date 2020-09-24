@@ -7,13 +7,24 @@ import ExtensiveSkillset from "../../components/ExtensiveSkillset"
 import ConnectWithMe from '../../components/ConnectWithMe';
 import './style.css';
 
-function Home() {
-  const [showLoading, setShowLoading] = useState(true);
+function Home(props) {
+  const [showLoading, setShowLoading] = useState(false);
   useEffect(() => {
-    window.addEventListener("load", onLoad);
-  }, );
+    console.log("props.loaded", props.loaded);
+    console.log("set showLoading to true");
+    if (!props.loaded) {
+      setShowLoading(true);
+    }
+  }, []);
+  useEffect(() => {
+    console.log("start listening for onload");
+    if (!props.loaded) {
+      window.addEventListener("load", onLoad);
+    }
+  }, []);
 
   function onLoad() {
+    console.log("onload finished");
     setShowLoading(false);
   }
   return (

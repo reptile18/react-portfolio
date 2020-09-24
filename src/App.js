@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
@@ -8,13 +8,17 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route  } from "react-router-dom";
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    window.addEventListener("load", () => {setLoaded(true)});
+  }, []);
   return (
     <Router basename={process.env.PUBLIC_URL}>
       {console.log(`process.env.PUBLIC_URL: ${process.env.PUBLIC_URL}`)}
       <div className="App">
         <Navbar></Navbar>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact render={() => <Home loaded={loaded} />}/>
           <Route path="/portfolio" exact component={Portfolio} />
           <Route path="/contact" component={Contact} />
         </Switch>
