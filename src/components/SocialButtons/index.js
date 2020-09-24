@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -6,6 +6,8 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import VizSensor from 'react-visibility-sensor';
+import { Fade } from '@material-ui/core';
 
 const GITHUB = "Github";
 const LINKEDIN = "LinkedIn";
@@ -59,14 +61,35 @@ function renderSocialIcon(type) {
   }
 }
 
-function renderSocial(item) {
-  return <Grid key={item.name} item><Link style={styles.link} href={item.link}>{renderSocialIcon(item.name)}</Link></Grid>
+function SocialButton(props) {
+  const [startAnim, SetStartAnim] = useState(false);
+  const [inView, SetInView] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (inView) {
+      timer = setTimeout(() => SetStartAnim(true), 250*props.index);
+    }
+    return () => clearTimeout(timer);
+  }, [inView, props.index])
+
+  return (
+    <VizSensor onChange={isVisible=>SetInView(isVisible)}>
+      <Fade in={startAnim} timeout={1000}>
+        <Grid key={props.item.name} item>
+          <Link style={styles.link} href={props.item.link}>
+            {renderSocialIcon(props.item.name)}
+          </Link>
+        </Grid>
+      </Fade>
+    </VizSensor>
+  )
 }
 
-function SocialButtons() {
+function SocialButtons(props) {
   return (
-    <Grid container spacing={5} justify="center">
-      {socials.map(renderSocial)}
+    <Grid xs={props.xs} sm={props.sm} md={props.md} lg={props.lg} container spacing={5} justify="center">
+      {socials.map((item, index) => <SocialButton item={item} index={index} />)}
     </Grid>
   )
 }

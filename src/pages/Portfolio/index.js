@@ -1,8 +1,7 @@
 import React from 'react';
-import { Grid, Typography, IconButton } from '@material-ui/core';
-import { Card, CardActionArea, CardMedia, CardContent, CardActions} from '@material-ui/core';
-import LanguageIcon from '@material-ui/icons/Language';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import { Grid } from '@material-ui/core';
+import ProjectCard from '../../components/ProjectCard';
+
 /*
   All cards to have the following props:
   favicon,
@@ -15,6 +14,26 @@ import GitHubIcon from '@material-ui/icons/GitHub';
   tech[]
 */
 const cards = [
+  {
+    favicon: "",
+    screenshot: "./assets/portfolio/screenshots/achillesheel.png",
+    title: "Achilles Heel",
+    blurb: "Greek Mythology Game",
+    description: "React Game with Greek Mythology themes",
+    url: "https://achilles-heel.herokuapp.com/",
+    github: "https://github.com/erin-smith/Achilles-heel",
+    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Material-UI"]
+  },
+  {
+    favicon: "",
+    screenshot: "./assets/portfolio/screenshots/reactportfolio.png",
+    title: "Portfolio",
+    blurb: "React Portfolio",
+    description: "React portfolio application featuring a landing page with animations",
+    url: "https://reptile18.github.io/",
+    github: "https://github.com/reptile18/reptile18.github.io",
+    tech: ["React.js", "Material-UI"]
+  },
   {
     favicon: "",
     screenshot: "./assets/portfolio/screenshots/covidcanidoit.png",
@@ -43,7 +62,7 @@ const cards = [
     description: "React application for viewing, sorting, and filtering employees.",
     url: "https://safe-journey-04548.herokuapp.com/",
     github: "https://github.com/reptile18/employee-directory",
-    tech: ["React", "React Hooks", "Class Component", "Functional Component", "Axios", "Bootstrap"]
+    tech: ["React.js", "React Hooks", "Class Component", "Functional Component", "Axios", "Bootstrap"]
   },
   {
     favicon: "",
@@ -102,51 +121,12 @@ const styles = {
     backgroundColor: "#111",
     backgroundImage: "url(./assets/codingbackground.png)",
     color: "white"
-  },
-  card: {
-    backgroundColor: "#333",
-    color: "#DDD",
-    textAlign: "left"
-  },
-  icon: {
-    color: "#DDD"
   }
 }
 
-function renderCard(card,index) {
-  return (
-    <Grid key={index} item container sm={6} xs={12}>
-      <Card style={styles.card}>
-        <CardActionArea>
-          <CardMedia 
-            component="img"
-            alt={card.title}
-            image={card.screenshot}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {card.title}
-            </Typography>
-            <Typography gutterBottom variant="caption" component="p">
-              {card.blurb}
-            </Typography>
-            <Typography gutterBottom component="p">
-              {card.description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <IconButton onClick={() => {window.location.href=card.url}} aria-label={`visit ${card.title}`}>
-            <LanguageIcon style={styles.icon} />
-          </IconButton>
-          <IconButton aria-label={`visit ${card.title} Github`}>
-            <GitHubIcon onClick={() => {window.location.href=card.github}} style={styles.icon} />
-          </IconButton>
-        </CardActions>
-      </Card>
-    </Grid>
-  )
-}
+
+
+
 
 function Portfolio() {
   return (
@@ -156,7 +136,7 @@ function Portfolio() {
       </Grid>
       <Grid item xs={12} sm={8} container spacing={10} justify="center" alignItems="center">
         {
-          cards.map((card, index) => renderCard(card,index))
+          cards.map((card, index) => <ProjectCard key={index} card={card} index={index} />)
         }
       </Grid>
     </Grid>

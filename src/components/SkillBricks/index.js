@@ -1,6 +1,8 @@
-import React from 'react';
-import { Grid, Typography} from '@material-ui/core';
+import React, {useState} from 'react';
+import { Grid } from '@material-ui/core';
 import './index.css';
+import VizSensor from 'react-visibility-sensor';
+import SkillBrick from '../SkillBrick';
 
 const skills = [
   "React",
@@ -27,9 +29,6 @@ const skills = [
 ]
 
 const styles = {
-  brickSpot: {
-
-  },
   brick: {
     backgroundColor: "#BB4545",
     backgroundImage: "url(./assets/brick.png)",
@@ -41,9 +40,6 @@ const styles = {
     verticalAlign:"middle",
     color: "white"
   },
-  spacer: {
-    marginLeft: "10px"
-  },
   wall: {
     marginLeft: "0vw"
   }
@@ -51,31 +47,17 @@ const styles = {
 
 const oddRows = 3;
 const evenRows = 4;
+const animationDuration = 150;
 
-function renderBrick(skill, index) {
-  return (
-    <Grid key={index} item xs={3} container justify="center" alignItems="center">
-      <Grid className="brick" container item justify="center" alignItems="center" style={styles.brick}>
-        <div>
-          <Typography variant="h4" component="h1">
-            {skill}
-          </Typography>
-        </div>
-
-      </Grid>
-    </Grid>
-  )
-}
-
-function renderContainer(index) {
+function renderContainer(index, startAnimation) {
   const skillIndex = Math.floor((index)/2)*7 + ((index)%2)*3; // 0: 3, 1: 7, 2: 10, 3: 14, 4: 17, 5: 21
   // if odd containerIndex, render 3, if even, render 4
   if (index%2===0) {
     return (
       <Grid key={index} container direction="row" alignItems="center" justify="center">
         {
-          [skills[skillIndex], skills[skillIndex+1], skills[skillIndex+2], skills[skillIndex+3]].map((skill)=> {
-            return renderBrick(skill)
+          [skills[skillIndex], skills[skillIndex+1], skills[skillIndex+2], skills[skillIndex+3]].map((skill,index)=> {
+            return <SkillBrick key={skillIndex+index} skill={skill} index={skillIndex+index} animate={startAnimation} time={(skills.length-skillIndex+index)*animationDuration} />
           })
         }
       </Grid>
@@ -85,8 +67,8 @@ function renderContainer(index) {
     return (
       <Grid key={index} container direction="row" alignItems="center" justify="center">
         {
-          [skills[skillIndex], skills[skillIndex+1], skills[skillIndex+2]].map((skill)=> {
-            return renderBrick(skill)
+          [skills[skillIndex+1], skills[skillIndex+2], skills[skillIndex+3]].map((skill,index)=> {
+            return <SkillBrick key={skillIndex+1+index} skill={skill} index={skillIndex+1+index} animate={startAnimation} time={(skills.length-skillIndex+1+index)*animationDuration}  />
           })
         }
       </Grid>
@@ -95,7 +77,7 @@ function renderContainer(index) {
   
 }
 
-function renderLayers() {
+function renderLayers(startAnimation) {
   let containerIndices = [];
 
   let numContainers = (skills.length / (evenRows+oddRows))*2;
@@ -103,16 +85,24 @@ function renderLayers() {
     containerIndices.push(i);
   }
   return containerIndices.map((containerIndex) => {
-    return renderContainer(containerIndex);
+    return renderContainer(containerIndex, startAnimation);
   });
 
 }
 
 function SkillBricks() {
+  const [startAnimation,setStartAnimation] = useState(false);
   return (
-    <Grid item xs={12} sm={12} md={10} container spacing={0} direction="column" alignItems="center" justify="center" style={styles.wall}>
-      {renderLayers()}
-    </Grid>
+    <VizSensor onChange={(isVisible) => {setStartAnimation(isVisible)}} partialVisibility>
+      <Grid 
+        item 
+        xs={12} sm={12} md={10} 
+        container spacing={0} direction="column"
+        alignItems="center" justify="center"
+        style={styles.wall}>
+        {renderLayers(startAnimation)}
+      </Grid>
+    </VizSensor>
   )
 }
 

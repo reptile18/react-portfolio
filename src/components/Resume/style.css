@@ -1,0 +1,36 @@
+.resume {
+  opacity: 0.75;
+  border: 1x solid cyan;
+}
+
+.resume:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .resume * {
+    /* transform: scale(0.25); */
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 960px) {
+  .resume * {
+    /* transform: scale(0.25); */
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1280px) {
+  .resume * {
+    /* transform: scale(0.75); */
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .resume * {
+    /* transform: scale(1); */
+    width: 100% !important;
+  }
+}

@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
-import SkillBricks from './components/SkillBricks';
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route  } from "react-router-dom";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/portfolio" exact component={Portfolio} />
           <Route path="/contact" component={Contact} />
-          <Route path="*" component={SkillBricks} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

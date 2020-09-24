@@ -1,0 +1,5 @@
+.dialog {
+  background-image: linear-gradient(to top, #222, #444);
+  color: #DDD;
+  padding: 25px !important;
+}

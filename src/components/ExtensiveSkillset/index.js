@@ -1,10 +1,11 @@
 import React from 'react';
 import {Grid} from '@material-ui/core';
 import SkillBricks from '../SkillBricks';
+import Concrete from '../../assets/concrete-3-min.jpg';
 
 const styles = {
   container: {
-    backgroundImage: "url(./assets/concrete-3.jpg)",
+    backgroundImage: `url(${Concrete})`,
     backgroundOrigin: "content-box",
     backgroundSize: "cover", 
     height: "100vh"

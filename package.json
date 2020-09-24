@@ -1,6 +1,6 @@
 {
-  "name": "react-portfolio",
-  "homepage": "https://reptile18.github.io/react-portfolio",
+  "name": "reptile18.github.io",
+  "homepage": "https://reptile18.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,15 +12,17 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-visibility-sensor": "^5.1.1"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && echo 'johnnyli.dev' > build/CNAME",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "create-file": "echo 'www.johnnyli.dev' > build/CNAME && echo 'test' > hi.txt"
   },
   "eslintConfig": {
     "extends": "react-app"
