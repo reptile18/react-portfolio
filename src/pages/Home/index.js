@@ -11,7 +11,7 @@ function Home() {
   const [showLoading, setShowLoading] = useState(true);
   useEffect(() => {
     window.addEventListener("load", onLoad);
-  }, []);
+  }, );
 
   function onLoad() {
     setShowLoading(false);
