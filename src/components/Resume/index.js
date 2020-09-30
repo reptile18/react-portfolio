@@ -43,7 +43,7 @@ function Resume() {
     <VizSensor onChange={isVisible=> SetFadeResume(isVisible)}>
       <Fade in={fadeResume} timeout={1500}>
         <div className="resume" style={styles.container}>
-          <a href="https://docs.google.com/document/d/1HJV3KI4REfkd1VVDl0fQhKUML_F0xrj1E6BbsJEYQiw/edit#heading=h.5x0d5h95i329">
+          <a href="https://docs.google.com/document/d/1GyMltJNXVUBOTvUrVFJcY8OFBkpBFH6-ftB-W4oGisk/edit">
             <img style={styles.pg2} src={page2} alt="page two of resume" />
             <img style={styles.pg1} src={page1} alt="page one of resume" />  
             <img style={styles.gDrive} src={gDrive} alt="google drive" />
