@@ -132,7 +132,7 @@ function Portfolio() {
   return (
     <Grid container style={styles.container} direction="row" justify="center">
       <Grid item xs={12}>
-        <h1>Portfolio</h1>
+        <h1>Projects</h1>
       </Grid>
       <Grid item xs={12} sm={8} container spacing={10} justify="center" alignItems="center">
         {

@@ -37,7 +37,12 @@ function Navbar() {
             </RouterLink>
             <RouterLink style={styles.link} to="/portfolio">
               <MuiLink style={styles.link}>
-                Portfolio
+                Projects
+              </MuiLink>
+            </RouterLink>
+            <RouterLink style={styles.link} to="/graphicdesign">
+              <MuiLink style={styles.link}>
+                Graphics
               </MuiLink>
             </RouterLink>
             {/*

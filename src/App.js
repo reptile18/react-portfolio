@@ -5,6 +5,7 @@ import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import GraphicDesign from './pages/GraphicDesign';
 import { BrowserRouter as Router, Switch, Route  } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path="/" exact render={() => <Home loaded={loaded} />}/>
           <Route path="/portfolio" exact component={Portfolio} />
+          <Route path="/graphicdesign" exact component={GraphicDesign} />
           <Route path="/contact" component={Contact} />
         </Switch>
         <Footer />
